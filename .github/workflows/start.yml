@@ -1,0 +1,21 @@
+  
+name: start_workflows
+on:
+  schedule:
+    - cron:  '2,12,22,32,42,52 * * * *'
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['clone_step_1']
+    types: 
+      - completed
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9999
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: install dependency
+        run: |
+          npm install
+      - run: node scan.js

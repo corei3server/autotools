@@ -1,0 +1,36 @@
+name: clone_step_1
+on:
+  workflow_run:
+    workflows: ['1_workflows']
+    types: 
+      - completed
+  workflow_run:
+    workflows: ['2_workflows']
+    types: 
+      - completed
+  workflow_run:
+    workflows: ['3_workflows']
+    types: 
+      - completed
+  workflow_run:
+    workflows: ['4_workflows']
+    types: 
+      - completed
+  workflow_run:
+    workflows: ['5_workflows']
+    types: 
+      - completed
+  
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9999
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: install dependency
+        run: |
+          npm install
+      - run: node scan.js

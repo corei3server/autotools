@@ -10,8 +10,6 @@ on:
       - completed
 jobs:
   build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 9999
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
+      - name: Start other job
+        run: echo "Start other job"

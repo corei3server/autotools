@@ -1,9 +1,10 @@
-name: 4_workflows
+name: clone_step_3
 on:
   workflow_run:
-    workflows: ['start_workflows']
+    workflows: ['clone_step_2']
     types: 
       - completed
+
 
 jobs:
   build:
@@ -12,3 +13,7 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+      - name: install dependency
+        run: |
+          npm install
+      - run: node scan.js

@@ -1,26 +1,9 @@
 name: clone_step_1
 on:
   workflow_run:
-    workflows: ['1_workflows']
+    workflows: ['1_workflows','2_workflows']
     types: 
       - completed
-  workflow_run:
-    workflows: ['2_workflows']
-    types: 
-      - completed
-  workflow_run:
-    workflows: ['3_workflows']
-    types: 
-      - completed
-  workflow_run:
-    workflows: ['4_workflows']
-    types: 
-      - completed
-  workflow_run:
-    workflows: ['5_workflows']
-    types: 
-      - completed
-  
 
 
 jobs:

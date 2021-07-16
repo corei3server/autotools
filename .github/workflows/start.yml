@@ -10,6 +10,8 @@ on:
       - completed
 jobs:
   build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9999
     steps:
-      - name: Start other job
-        run: echo "Start other job"
+      - name: Start job
+        run: echo "Start job"
